@@ -1,0 +1,356 @@
+$view = new view();
+$view->name = 'daftar_arsip';
+$view->description = '';
+$view->tag = 'default';
+$view->base_table = 'node';
+$view->human_name = 'Daftar Arsip';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Daftar Arsip';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['access']['type'] = 'role';
+$handler->display->display_options['access']['role'] = array(
+  4 => '4',
+);
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['pager']['type'] = 'full';
+$handler->display->display_options['style_plugin'] = 'table';
+$handler->display->display_options['style_options']['columns'] = array(
+  'title' => 'title',
+  'field_tanggal_penciptaan' => 'field_tanggal_penciptaan',
+  'field_tanggal_retensi_inaktif' => 'field_tanggal_retensi_inaktif',
+);
+$handler->display->display_options['style_options']['default'] = '-1';
+$handler->display->display_options['style_options']['info'] = array(
+  'title' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'field_tanggal_penciptaan' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'field_tanggal_retensi_inaktif' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+);
+/* Header: Global: Text area */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['empty'] = TRUE;
+$handler->display->display_options['header']['area']['content'] = '<div class="panel panel-default">
+  <div class="panel-body" style="text-align: right;">
+    <a href="[base_url]/node/add/arsip-inaktif">Tambah data arsip</a>
+  </div>
+</div>';
+$handler->display->display_options['header']['area']['format'] = 'full_html';
+$handler->display->display_options['header']['area']['tokenize'] = TRUE;
+/* No results behavior: Global: Text area */
+$handler->display->display_options['empty']['area']['id'] = 'area';
+$handler->display->display_options['empty']['area']['table'] = 'views';
+$handler->display->display_options['empty']['area']['field'] = 'area';
+$handler->display->display_options['empty']['area']['empty'] = TRUE;
+$handler->display->display_options['empty']['area']['content'] = '<div class="alert alert-info" role="alert">Data tidak ditemukan.</div>';
+$handler->display->display_options['empty']['area']['format'] = 'full_html';
+/* Relationship: Entity Reference: Referenced Entity */
+$handler->display->display_options['relationships']['field_klasifikasi_target_id']['id'] = 'field_klasifikasi_target_id';
+$handler->display->display_options['relationships']['field_klasifikasi_target_id']['table'] = 'field_data_field_klasifikasi';
+$handler->display->display_options['relationships']['field_klasifikasi_target_id']['field'] = 'field_klasifikasi_target_id';
+/* Field: Content: Title */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['label'] = 'No. Arsip';
+$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+/* Field: Content: Unit asal arsip */
+$handler->display->display_options['fields']['field_unit_asal_arsip_shs']['id'] = 'field_unit_asal_arsip_shs';
+$handler->display->display_options['fields']['field_unit_asal_arsip_shs']['table'] = 'field_data_field_unit_asal_arsip_shs';
+$handler->display->display_options['fields']['field_unit_asal_arsip_shs']['field'] = 'field_unit_asal_arsip_shs';
+$handler->display->display_options['fields']['field_unit_asal_arsip_shs']['type'] = 'hs_taxonomy_term_reference_hierarchical_text';
+/* Field: Content: Tanggal Penciptaan */
+$handler->display->display_options['fields']['field_tanggal_penciptaan']['id'] = 'field_tanggal_penciptaan';
+$handler->display->display_options['fields']['field_tanggal_penciptaan']['table'] = 'field_data_field_tanggal_penciptaan';
+$handler->display->display_options['fields']['field_tanggal_penciptaan']['field'] = 'field_tanggal_penciptaan';
+$handler->display->display_options['fields']['field_tanggal_penciptaan']['settings'] = array(
+  'format_type' => 'short',
+  'custom_date_format' => '',
+  'fromto' => 'both',
+  'multiple_number' => '',
+  'multiple_from' => '',
+  'multiple_to' => '',
+  'show_remaining_days' => 0,
+);
+/* Field: Content: Tanggal Retensi Inaktif */
+$handler->display->display_options['fields']['field_tanggal_retensi_inaktif']['id'] = 'field_tanggal_retensi_inaktif';
+$handler->display->display_options['fields']['field_tanggal_retensi_inaktif']['table'] = 'field_data_field_tanggal_retensi_inaktif';
+$handler->display->display_options['fields']['field_tanggal_retensi_inaktif']['field'] = 'field_tanggal_retensi_inaktif';
+$handler->display->display_options['fields']['field_tanggal_retensi_inaktif']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_tanggal_retensi_inaktif']['settings'] = array(
+  'format_type' => 'short',
+  'custom_date_format' => '',
+  'fromto' => 'both',
+  'multiple_number' => '',
+  'multiple_from' => '',
+  'multiple_to' => '',
+  'show_remaining_days' => 0,
+);
+/* Field: Content: Tanggal Retensi Inaktif */
+$handler->display->display_options['fields']['field_tanggal_retensi_inaktif_1']['id'] = 'field_tanggal_retensi_inaktif_1';
+$handler->display->display_options['fields']['field_tanggal_retensi_inaktif_1']['table'] = 'field_data_field_tanggal_retensi_inaktif';
+$handler->display->display_options['fields']['field_tanggal_retensi_inaktif_1']['field'] = 'field_tanggal_retensi_inaktif';
+$handler->display->display_options['fields']['field_tanggal_retensi_inaktif_1']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_tanggal_retensi_inaktif_1']['settings'] = array(
+  'format_type' => 'custom',
+  'custom_date_format' => 'U',
+  'fromto' => 'both',
+  'multiple_number' => '',
+  'multiple_from' => '',
+  'multiple_to' => '',
+  'show_remaining_days' => 0,
+);
+/* Field: Views: Views Conditional */
+$handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
+$handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
+$handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
+$handler->display->display_options['fields']['views_conditional']['label'] = 'Tanggal Retensi';
+$handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['views_conditional']['if'] = 'field_tanggal_retensi_inaktif_1';
+$handler->display->display_options['fields']['views_conditional']['condition'] = '3';
+$handler->display->display_options['fields']['views_conditional']['equalto'] = 'DATE_UNIX';
+$handler->display->display_options['fields']['views_conditional']['then'] = '[field_tanggal_retensi_inaktif]';
+$handler->display->display_options['fields']['views_conditional']['or'] = '<span class="label label-warning">[field_tanggal_retensi_inaktif]</span>';
+$handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
+/* Field: Content: Klasifikasi */
+$handler->display->display_options['fields']['field_klasifikasi']['id'] = 'field_klasifikasi';
+$handler->display->display_options['fields']['field_klasifikasi']['table'] = 'field_data_field_klasifikasi';
+$handler->display->display_options['fields']['field_klasifikasi']['field'] = 'field_klasifikasi';
+$handler->display->display_options['fields']['field_klasifikasi']['settings'] = array(
+  'bypass_access' => 0,
+  'link' => 0,
+);
+/* Field: Content: Lokasi rak */
+$handler->display->display_options['fields']['field_lokasi_rak']['id'] = 'field_lokasi_rak';
+$handler->display->display_options['fields']['field_lokasi_rak']['table'] = 'field_data_field_lokasi_rak';
+$handler->display->display_options['fields']['field_lokasi_rak']['field'] = 'field_lokasi_rak';
+/* Field: Content: No Folder */
+$handler->display->display_options['fields']['field_no_folder']['id'] = 'field_no_folder';
+$handler->display->display_options['fields']['field_no_folder']['table'] = 'field_data_field_no_folder';
+$handler->display->display_options['fields']['field_no_folder']['field'] = 'field_no_folder';
+/* Field: Content: Penanganan Pasca Retensi */
+$handler->display->display_options['fields']['field_klas_pasca_inaktif']['id'] = 'field_klas_pasca_inaktif';
+$handler->display->display_options['fields']['field_klas_pasca_inaktif']['table'] = 'field_data_field_klas_pasca_inaktif';
+$handler->display->display_options['fields']['field_klas_pasca_inaktif']['field'] = 'field_klas_pasca_inaktif';
+$handler->display->display_options['fields']['field_klas_pasca_inaktif']['label'] = 'Status Arsip';
+$handler->display->display_options['fields']['field_klas_pasca_inaktif']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['field_klas_pasca_inaktif']['alter']['text'] = '<span class="label label-success">[field_klas_pasca_inaktif]</span>';
+/* Field: Content: Hak Akses */
+$handler->display->display_options['fields']['field_hak_akses']['id'] = 'field_hak_akses';
+$handler->display->display_options['fields']['field_hak_akses']['table'] = 'field_data_field_hak_akses';
+$handler->display->display_options['fields']['field_hak_akses']['field'] = 'field_hak_akses';
+/* Field: Content: Edit link */
+$handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+$handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+$handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+$handler->display->display_options['fields']['edit_node']['label'] = '';
+$handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['edit_node']['text'] = 'edit';
+/* Field: Global: Base url */
+$handler->display->display_options['fields']['base_url']['id'] = 'base_url';
+$handler->display->display_options['fields']['base_url']['table'] = 'views';
+$handler->display->display_options['fields']['base_url']['field'] = 'base_url';
+$handler->display->display_options['fields']['base_url']['label'] = '';
+$handler->display->display_options['fields']['base_url']['exclude'] = TRUE;
+$handler->display->display_options['fields']['base_url']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['base_url']['show_link'] = 0;
+$handler->display->display_options['fields']['base_url']['show_link_options'] = array(
+  'link_path' => '',
+  'link_text' => '',
+  'link_class' => '',
+  'link_title' => '',
+  'link_rel' => '',
+  'link_fragment' => '',
+  'link_query' => '',
+  'link_target' => '',
+);
+/* Field: Content: Title */
+$handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+$handler->display->display_options['fields']['title_1']['table'] = 'node';
+$handler->display->display_options['fields']['title_1']['field'] = 'title';
+$handler->display->display_options['fields']['title_1']['relationship'] = 'field_klasifikasi_target_id';
+$handler->display->display_options['fields']['title_1']['label'] = '';
+$handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
+$handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
+/* Field: Content: Delete link */
+$handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+$handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+$handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+$handler->display->display_options['fields']['delete_node']['label'] = '';
+$handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['delete_node']['text'] = 'delete';
+/* Field: Content: Updated date */
+$handler->display->display_options['fields']['changed']['id'] = 'changed';
+$handler->display->display_options['fields']['changed']['table'] = 'node';
+$handler->display->display_options['fields']['changed']['field'] = 'changed';
+$handler->display->display_options['fields']['changed']['label'] = 'Updated';
+$handler->display->display_options['fields']['changed']['date_format'] = 'short';
+$handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+/* Sort criterion: Content: Post date */
+$handler->display->display_options['sorts']['created']['id'] = 'created';
+$handler->display->display_options['sorts']['created']['table'] = 'node';
+$handler->display->display_options['sorts']['created']['field'] = 'created';
+$handler->display->display_options['sorts']['created']['order'] = 'DESC';
+/* Filter criterion: Content: Published */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filter criterion: Content: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'arsip_inaktif' => 'arsip_inaktif',
+);
+$handler->display->display_options['filters']['type']['group'] = 1;
+/* Filter criterion: Content: Title */
+$handler->display->display_options['filters']['title']['id'] = 'title';
+$handler->display->display_options['filters']['title']['table'] = 'node';
+$handler->display->display_options['filters']['title']['field'] = 'title';
+$handler->display->display_options['filters']['title']['operator'] = 'contains';
+$handler->display->display_options['filters']['title']['group'] = 1;
+$handler->display->display_options['filters']['title']['exposed'] = TRUE;
+$handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+$handler->display->display_options['filters']['title']['expose']['label'] = 'No. Arsip';
+$handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+$handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+$handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+  4 => 0,
+);
+$handler->display->display_options['filters']['title']['expose']['autocomplete_filter'] = 1;
+$handler->display->display_options['filters']['title']['expose']['autocomplete_items'] = '10';
+$handler->display->display_options['filters']['title']['expose']['autocomplete_min_chars'] = '0';
+$handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title';
+$handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
+$handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
+$handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
+/* Filter criterion: Content: Title */
+$handler->display->display_options['filters']['title_1']['id'] = 'title_1';
+$handler->display->display_options['filters']['title_1']['table'] = 'node';
+$handler->display->display_options['filters']['title_1']['field'] = 'title';
+$handler->display->display_options['filters']['title_1']['relationship'] = 'field_klasifikasi_target_id';
+$handler->display->display_options['filters']['title_1']['operator'] = 'contains';
+$handler->display->display_options['filters']['title_1']['group'] = 1;
+$handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
+$handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
+$handler->display->display_options['filters']['title_1']['expose']['label'] = 'Klasifikasi';
+$handler->display->display_options['filters']['title_1']['expose']['operator'] = 'title_1_op';
+$handler->display->display_options['filters']['title_1']['expose']['identifier'] = 'title_1';
+$handler->display->display_options['filters']['title_1']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['title_1']['expose']['autocomplete_items'] = '10';
+$handler->display->display_options['filters']['title_1']['expose']['autocomplete_min_chars'] = '0';
+$handler->display->display_options['filters']['title_1']['expose']['autocomplete_field'] = 'title_1';
+$handler->display->display_options['filters']['title_1']['expose']['autocomplete_raw_suggestion'] = 1;
+$handler->display->display_options['filters']['title_1']['expose']['autocomplete_raw_dropdown'] = 1;
+$handler->display->display_options['filters']['title_1']['expose']['autocomplete_dependent'] = 0;
+/* Filter criterion: Content: Tanggal Retensi Inaktif (field_tanggal_retensi_inaktif) */
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['id'] = 'field_tanggal_retensi_inaktif_value';
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['table'] = 'field_data_field_tanggal_retensi_inaktif';
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['field'] = 'field_tanggal_retensi_inaktif_value';
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['operator'] = 'between';
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['group'] = 1;
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['expose']['operator_id'] = 'field_tanggal_retensi_inaktif_value_op';
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['expose']['label'] = 'Tanggal Retensi';
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['expose']['operator'] = 'field_tanggal_retensi_inaktif_value_op';
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['expose']['identifier'] = 'field_tanggal_retensi_inaktif_value';
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+  4 => 0,
+);
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['form_type'] = 'date_popup';
+$handler->display->display_options['filters']['field_tanggal_retensi_inaktif_value']['year_range'] = '-50:+50';
+/* Filter criterion: Content: Penanganan Pasca Retensi (field_klas_pasca_inaktif) */
+$handler->display->display_options['filters']['field_klas_pasca_inaktif_value']['id'] = 'field_klas_pasca_inaktif_value';
+$handler->display->display_options['filters']['field_klas_pasca_inaktif_value']['table'] = 'field_data_field_klas_pasca_inaktif';
+$handler->display->display_options['filters']['field_klas_pasca_inaktif_value']['field'] = 'field_klas_pasca_inaktif_value';
+$handler->display->display_options['filters']['field_klas_pasca_inaktif_value']['group'] = 1;
+$handler->display->display_options['filters']['field_klas_pasca_inaktif_value']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_klas_pasca_inaktif_value']['expose']['operator_id'] = 'field_klas_pasca_inaktif_value_op';
+$handler->display->display_options['filters']['field_klas_pasca_inaktif_value']['expose']['label'] = 'Status';
+$handler->display->display_options['filters']['field_klas_pasca_inaktif_value']['expose']['operator'] = 'field_klas_pasca_inaktif_value_op';
+$handler->display->display_options['filters']['field_klas_pasca_inaktif_value']['expose']['identifier'] = 'field_klas_pasca_inaktif_value';
+$handler->display->display_options['filters']['field_klas_pasca_inaktif_value']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+  4 => 0,
+);
+/* Filter criterion: Content: Unit asal arsip (will be hidden) (field_unit_asal_arsip_hs) */
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['id'] = 'field_unit_asal_arsip_hs_tid';
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['table'] = 'field_data_field_unit_asal_arsip_hs';
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['field'] = 'field_unit_asal_arsip_hs_tid';
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['group'] = 1;
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['expose']['operator_id'] = 'field_unit_asal_arsip_hs_tid_op';
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['expose']['label'] = 'Unit asal';
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['expose']['operator'] = 'field_unit_asal_arsip_hs_tid_op';
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['expose']['identifier'] = 'field_unit_asal_arsip_hs_tid';
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+  4 => 0,
+);
+$handler->display->display_options['filters']['field_unit_asal_arsip_hs_tid']['vocabulary'] = 'unit_asal_arsip';
+/* Filter criterion: Content: Hak Akses (field_hak_akses) */
+$handler->display->display_options['filters']['field_hak_akses_value']['id'] = 'field_hak_akses_value';
+$handler->display->display_options['filters']['field_hak_akses_value']['table'] = 'field_data_field_hak_akses';
+$handler->display->display_options['filters']['field_hak_akses_value']['field'] = 'field_hak_akses_value';
+$handler->display->display_options['filters']['field_hak_akses_value']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_hak_akses_value']['expose']['operator_id'] = 'field_hak_akses_value_op';
+$handler->display->display_options['filters']['field_hak_akses_value']['expose']['label'] = 'Akses';
+$handler->display->display_options['filters']['field_hak_akses_value']['expose']['operator'] = 'field_hak_akses_value_op';
+$handler->display->display_options['filters']['field_hak_akses_value']['expose']['identifier'] = 'field_hak_akses_value';
+$handler->display->display_options['filters']['field_hak_akses_value']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+  4 => 0,
+  5 => 0,
+);
+
+/* Display: Page */
+$handler = $view->new_display('page', 'Page', 'page_1');
+$handler->display->display_options['path'] = 'daftar-arsip';
